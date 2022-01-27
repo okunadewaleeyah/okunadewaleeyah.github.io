@@ -1,3 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetaBanta coming soon page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">Our website is <span>Coming Soon</span>, follow us <br> for updates now</div>
+        <form action="" class="form">
+            <div class="email-field">
+                <input type="email" placeholder="Enter Email" id="">
+                <button>Subscribe</button>
+            </div>
+        </form>
+        <div class="count-down">
+            <div class="timer day">
+                <div class="count">
+                    <div class="numb">00</div>
+                    <div class="text">Days</div>
+                </div>
+            </div>
+            <div class="clone">:</div>
+            <div class="timer hour">
+                <div class="count">
+                    <div class="numb">00</div>
+                    <div class="text">Hours</div>
+                </div>
+            </div>
+            <div class="clone">:</div>
+            <div class="timer min">
+                <div class="count">
+                    <div class="numb">00</div>
+                    <div class="text">Minutes</div>
+                </div>
+            </div>
+            <div class="clone">:</div>
+            <div class="timer sec">
+                <div class="count">
+                    <div class="numb">00</div>
+                    <div class="text">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const day = document.querySelector(".day .numb")
+        const hour = document.querySelector(".hour .numb")
+        const min = document.querySelector(".min .numb")
+        const sec = document.querySelector(".sec .numb")
+
+        let timer = setInterval(() => {
+            
+            let currentDate = new Date().getTime();
+            let launchDate = new Date('Sep 18, 2022 13:00:00').getTime();
+            let duration = launchDate - currentDate;
+            let days = Math.floor(duration / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((duration % (1000 * 60)) / 1000);
+            day.innerHTML = days;
+            hour.innerHTML = hours;
+            min.innerHTML = minutes;
+            sec.innerHTML = seconds;
+
+            if(days < 10) {
+                day.innerHTML = '0' + days;
+            }
+            if(hours < 10) {
+                hour.innerHTML = '0' + hours;
+            }
+            if(minutes < 10) {
+                min.innerHTML = '0' + minutes;
+            }
+            if(seconds < 10) {
+                sec.innerHTML = '0' + seconds;
+            }
+            if(duration < 0) {
+                clearInterval(timer);
+            }
+            
+        }, 1000)
+    </script>
+</body>
+</html>
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/okunadewaleeyah/okunadewaleeyah.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
